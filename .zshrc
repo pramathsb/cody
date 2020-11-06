@@ -5,6 +5,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # directories
 alias p="cd /Volumes/Store/projects;"
+alias py="cd /Volumes/Store/projects/youty;s;"
 
 #npm
 alias n="npm install"
