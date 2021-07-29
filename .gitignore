@@ -1,9 +1,14 @@
 # dependencies
-/node_modules
+node_modules/
 
 # production
-/build
+build/
+
+#project
+package-lock.json
+.vscode/
+
+# os
+.DS_Store
 
 # misc
-.DS_Store
-.package-lock.json
