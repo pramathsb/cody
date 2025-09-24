@@ -1,16 +1,24 @@
+#Java
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+#Nvm
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completionΩ
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # directories
 alias p="cd /Volumes/Store/projects;"
-alias py="cd /Volumes/Store/projects/youty;s;"
+alias prb="cd /Volumes/Store/projects/raildata/backend;d;"
 
 #npm
-alias n="npm install"
+alias i="npm install"
 alias s="npm start"
+alias d="npm run dev"
 alias b="npm run build"
 alias sb="serve -s build"
+
+#pnpm
+alias pi="pnpm install"
 
 #clear
 alias rmn="rm -rf node_modules package-lock.json"
