@@ -6,26 +6,28 @@ sudo /Applications/Install\ macOS\ Sequoia.app/Contents/Resources/createinstallm
 Chrome
 iTerm
 brew
-vscode
 firefox
+vscode
 postman
 gitkraken
-runnycat
-Dr.cleaner
 docker
 mongodb
-Istatmenu
 intelijce
 Android studio
 sourcetree
 wireguard
 httptoolkit
+mist
 
+runnycat
+Dr.cleaner
+Istatmenu
 
 brew install git
-brew install openjdk
 brew install nvm
-brew install pnm  
+brew install pnpm 
+
+brew install openjdk
 brew install jadx
 
 git config --global user.name "Pramath S.B"
