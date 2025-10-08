@@ -22,10 +22,12 @@ mist
 runnycat
 Dr.cleaner
 Istatmenu
+windowsapp
 
 brew install git
 brew install nvm
 brew install pnpm 
+pnpm setup
 
 brew install openjdk
 brew install jadx
@@ -41,3 +43,14 @@ cat .ssh/id_ed25519.pub | pbcopy
 https://github.com/settings/ssh/new
 
 nvm install node
+
+
+Open vscode
+
+Go to Settings and Click on Keyboard shortcuts (cmd K and cmd S)
+
+In Search panel, search "workbench.action.terminal.toggleTerminal" (without double quotes)
+
+Double Click on the appeared "workbench.action.terminal.toggleTerminal"
+
+Record your command "control + ~" and Press Enter
