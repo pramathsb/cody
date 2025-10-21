@@ -11,6 +11,11 @@ git clone git@github.com:pramathsb/raildata.git
 git clone git@github.com:pramathsb/hooks.git
 git clone git@github.com:pramathsb/scrapped-data.git
 
+cd /root/projects/hooks/raildata/frontend
+pnpm install
+pm2 start "npm run dev" --name relay
+pm2 save
+
 cd /root/projects/hooks/raildata/
 pnpm install
 pm2 start git.hook.js --name webhook
