@@ -6,6 +6,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm 
 
+# pnpm
+export PNPM_HOME="/Users/psb/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 #git
 alias g="git branch"
@@ -28,10 +35,5 @@ alias pi="pnpm install"
 #clear
 alias rmn="rm -rf node_modules package-lock.json"
 
-# pnpm
-export PNPM_HOME="/Users/psb/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+#ssh
+alias s15="ssh root@192.168.0.15"

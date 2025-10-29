@@ -2,6 +2,7 @@
 
 pm2 delete all
 pm2 flush
+rm -rf /root/.pm2/logs/*
 rm -rf /root/projects
 
 export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
@@ -9,22 +10,19 @@ export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 cd /root/projects || mkdir -p /root/projects && cd /root/projects
 git clone git@github.com:pramathsb/raildata.git
 git clone git@github.com:pramathsb/hooks.git
-git clone git@github.com:pramathsb/scrapped-data.git
-
-cd /root/projects/hooks/raildata/frontend
-pnpm install
-pm2 start "npm run dev" --name relay
-pm2 save
+# git clone git@github.com:pramathsb/scrapped-data.git
 
 cd /root/projects/hooks/raildata/
 pnpm install
 pm2 start git.hook.js --name webhook
 
-cd /root/projects/raildata/backend
+cd /root/projects/raildata/frontend
 pnpm install
-pm2 start "npm run start" --name scrapper
-pm2 start "npm run startRelay" --name relayServer
+pm2 start "npm run dev" --name relayFront
 
-pm2 save
+cd /root/projects/raildata/backend
+pnpm run build
+pm2 start "npm run start" --name scrapper 
+pm2 start "npm run startRelay" --name relayBack
 
-pm2 logs
+pm2 save && pm2 logs
