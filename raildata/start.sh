@@ -23,6 +23,6 @@ pm2 start "npm run dev" --name relayFront
 cd /root/projects/raildata/backend
 pnpm run build
 pm2 start "npm run start" --name scrapper 
-pm2 start "npm run startRelay" --name relayBack
+pm2 start "npm run relay" --name relayBack
 
 pm2 save && pm2 logs
