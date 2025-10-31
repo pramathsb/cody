@@ -16,4 +16,11 @@ pnpm run build
 echo "🚀 Restarting PM2 services..."
 pm2 restart /rd-/
 
+echo "🌐 Setting up frontend..."
+cd /root/projects/raildata/frontend
+pnpm install
+pnpm run build
+rm -rf /var/www/html/*
+sudo cp -r ./dist/* /var/www/html/
+
 echo "✅ Server restarted with the latest code!"

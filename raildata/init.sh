@@ -33,7 +33,7 @@ sudo timedatectl set-timezone Asia/Kolkata
 
 echo "🔄 Updating system and installing packages..."
 sudo apt update
-sudo apt install -y curl nginx git
+sudo apt install -y git curl nginx 
 
 echo "🚀 Starting and enabling Nginx..."
 sudo systemctl enable --now nginx
@@ -46,9 +46,11 @@ echo "📥 Installing NVM (Node Version Manager)..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
 echo "🔧 Loading NVM into current shell..."
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# nvm end
 
 echo "🧩 Verifying NVM installation..."
 nvm --version
@@ -59,7 +61,13 @@ nvm install node  # "node" alias points to latest version
 echo "📦 Installing pnpm and pm2..."
 npm install -g pnpm
 pnpm setup
-source ~/.bashrc
+# pnpm
+export PNPM_HOME="/root/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 echo "🔄 Reloading shell configuration..."
 pnpm add -g pm2
@@ -79,21 +87,4 @@ echo -e "\n📋 Public SSH key:\n"
 cat "${SSH_KEY}.pub"
 echo -e "\n➡️  Copy this key to GitHub or other services."
 
-
-# pnpm setup
-# pnpm config set global-bin-dir "$HOME/.local/share/pnpm/bin"
-# export PNPM_HOME="/root/.local/share/pnpm"
-# export PATH="$PNPM_HOME/bin:$PATH"
-
-
-# echo "📥 Installing corepack globally via npm..."
-# sudo npm install -g corepack
-
-# echo "🔍 Checking corepack version..."
-# corepack --version
-
-# echo "🚀 Enabling corepack..."
-# corepack enable
-
-# echo "📦 Preparing and activating latest pnpm..."
-# corepack prepare pnpm@latest --activate
+exec bash

@@ -25,7 +25,9 @@ pm2 start git.hook.js --name webhook
 echo "🌐 Setting up frontend..."
 cd /root/projects/raildata/frontend
 pnpm install
-pm2 start "npm run dev" --name rd-relayFrontend
+pnpm run build
+rm -rf /var/www/html/*
+sudo cp -r ./dist/* /var/www/html/
 
 echo "🧠 Setting up backend..."
 cd /root/projects/raildata/backend
