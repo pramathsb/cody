@@ -1,11 +1,19 @@
 #!/bin/bash
+set -e
+
+echo "🧹 Flushing old PM2 logs..."
 pm2 flush
-cd /root/projects/raildata/
+
+echo "📦 Updating project code..."
+cd /root/projects/raildata
 git pull origin main
-cd backend/
+
+echo "⚙️ Rebuilding backend..."
+cd backend
 pnpm install
 pnpm run build
-pm2 restart scrapper
-pm2 restart relayBack
-pm2 restart relayFront
-echo "Server restarted with latest code"
+
+echo "🚀 Restarting PM2 services..."
+pm2 restart /rd-/
+
+echo "✅ Server restarted with the latest code!"
